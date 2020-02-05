@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1 class="text-center">{{tag.title}}</h1>
+
+{% for post_list in tag.posts.all %}
+<div class="card mt-2">
+  <div class="card-header">
+    <span class="text-secondary"><i class="far fa-user mr-2"></i><a href="">{{post_list.author}}</a></span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{post_list.title}}</h5>
+    <p class="card-text">{{post_list.body}}</p>
+    <div class="my-2">
+    	<span class="text-secondary mr-2"><i class="far fa-calendar-alt mr-2"></i>{{post_list.created_data}}</span>
+    	<span class="text-secondary"><i class="far fa-comments mr-2"></i>20 comments</span>
+    </div>
+    <a href="{{post_list.get_absolute_url}}" class="btn btn-primary">Read</a>
+    <div class="mt-2">
+      <a href="{{tag.get_absolute_url}}" class="btn btn-secondary">{{tag.title}}</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

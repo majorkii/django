@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+
+<h1 class="text-center">Tags</h1>
+<a href="{% url 'tag_create_url' %}" class="btn btn-primary mb-3">Create new-tag</a><br>
+{% for tag in tag_list %}
+<a href="{{tag.get_absolute_url}}" class="btn btn-secondary">{{tag.title}}</a>
+{% endfor %}
+
+{% endblock %}
